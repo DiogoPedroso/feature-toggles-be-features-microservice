@@ -13,14 +13,30 @@ public class FeatureService {
     public FeatureService(FeatureRepository featureRepository) {
         this.featureRepository = featureRepository;
     }
+    /**
+     * Function that returns all features from DB
+     * 
+     * @return feature List
+     */
 
     public List<Feature> getFeatures() {
         return featureRepository.findAll();
     }
 
+    /**
+     * Function that adds new feature
+     * 
+     */
     public void addNewFeature(Feature feature) {
         featureRepository.save(feature);
     }
+
+    /**
+     * Function that updates feature
+     * 
+     * @param id
+     * @param featureUpdate
+     */
 
     public void updateFeature(Long id, Feature featureUpdate) {
         boolean featureExists = featureRepository.existsById(id);
@@ -33,6 +49,13 @@ public class FeatureService {
 
         featureRepository.save(featureUpdate);
     }
+    
+    /**
+     * Function to archive feature
+     * 
+     * @param id
+     * @param featureUpdate
+     */
 
     public void archiveFeature(Long id) {
         Feature feature = featureRepository.findById(id).orElseThrow(
@@ -43,6 +66,12 @@ public class FeatureService {
         featureRepository.save(feature);
     }
 
+    /**
+     * Function that returns features that customer has access to by technicalName
+     * @param id
+     * @param technicalNames
+     * @return
+     */
     public List<Feature> getFeaturesForCustomerById(String id, List<String> technicalNames) {
         List<Feature> featuresByTechnicalName = featureRepository.findByTechnicalNameIn(technicalNames);
         return featuresByTechnicalName;
