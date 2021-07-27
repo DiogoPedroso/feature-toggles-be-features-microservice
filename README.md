@@ -1,7 +1,7 @@
 # Feature Toggle Microservice
 
 This is the "Feature Toggle" Microservice that was created for the "Feature Toggle" assignment. It provides the API for the "feature toggles", check the provided postman for what services are available and example calls.
-The users have been hardcoded and need to be updated the same has the users in the Authorization Microservice.
+The users have been hardcoded and need to be updated the same has the users in the Authorization Microservice. Update the aplication yaml file according to your environment's config.
 
 Requires JAVA 16, Maven and Postgres.
 
